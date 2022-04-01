@@ -58,3 +58,7 @@ How to playing simulated drone
   And enter the flying altitude of the drone, here I enter the number 5.
   
   ![Screenshot from 2022-03-23 21-00-55](https://user-images.githubusercontent.com/99522867/159717099-ae8dd0db-72b8-4738-8c86-eff0214df5f5.png)
+  
+# Preview
+
+https://user-images.githubusercontent.com/99522867/161209686-a621ef38-0be3-45d8-ba3c-224fe1b1fb43.mp4
