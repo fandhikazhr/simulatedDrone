@@ -10,6 +10,16 @@ args = parser.parse_args()
 print('Connected to vehicle on: %s' % args.connect)
 vehicle = connect(args.connect, baud=57600, wait_ready=True)
 
+# Choose Flight Mode
+mode1 = 'GUIDED'
+
+mode_id = master.mode_mapping()[mode1]
+
+master.mav.set_mode_send(
+  master.target_system,
+  mavutil.mavlink.MAV_MODE_FLAG_CUSTOM_MODE_ENABLED,
+  mode_id)
+
 def arm_and_takeoff(aTargetAltitude):
   print "Basic pre-arm checks"
   while not vehicle.is_armable:
@@ -56,5 +66,20 @@ print("--> Going to Point 2")
 
 time.sleep(5)
 print("Mission Completed !!!")
+
+# hovering 15 seconds
+time.sleep(15)
+
+# Change Flight Mode for Landing
+mode2 = 'LAND'
+
+mode_land = master.mode_mapping()[mode2]
+
+master.mav.set_mode_send(
+  master.target_system,
+  mavutil.mavlink.MAV_MODE_FLAG_CUSTOM_MODE_ENABLED,
+  mode_land)
+
+print("Landing ...")
 
 vehicle.close()
