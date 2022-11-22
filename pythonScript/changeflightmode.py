@@ -16,4 +16,11 @@ master.mav.set_mode_send(
 
 while True:
   ack_msg = master.recv_match(type='COMMAND_ACK', blocking=True)
+  ack_msg = ack_msg.to_dict()
+  
+  if ack_msg['command'] != mavutil.mavlink.MAV_CMD_DO_SET_MODE:
+    continue
+    
+  print(mavutil.mavlink.enums['MAV_RESULT'][ack_msg['result']].description)
+  break 
 
