@@ -70,7 +70,7 @@ print("--> Going to Point 2")
 point2 = LocationGlobalRelative(-35.363244, 149.168801, 10)
 vehicle.simple_goto(point2)
 
-time.sleep(30)
+time.sleep(40)
 print("Mission Completed !!!")
 
 # hovering 15 seconds
