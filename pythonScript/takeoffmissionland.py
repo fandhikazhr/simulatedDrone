@@ -81,8 +81,9 @@ vehicle.close()
 
 # Change Flight Mode for Landing
 mode2 = 'LAND'
+mode6 = 'RTL'
 
-mode_land = master.mode_mapping()[mode2]
+mode_land = master.mode_mapping()[mode6]
 
 master.mav.set_mode_send(
   master.target_system,
@@ -90,4 +91,5 @@ master.mav.set_mode_send(
   mode_land)
 
 print("Landing ...")
+time.sleep(15)
 print("Land Successfully !!!")
