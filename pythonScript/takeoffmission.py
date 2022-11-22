@@ -43,4 +43,18 @@ print("Takeoff Successfully !!!")
 # hovering 15 seconds
 time.sleep(15)
 
+# Mission Started
+point1 = LocationGlobalRelative(-35.361354, 149.165218, 10)
+vehicle.simple_goto(point1)
+print("--> Going to Point 1")
+
+time.sleep(5)
+
+point2 = LocationGlobalRelative(-35.363244, 149.168801, 10)
+vehicle.simple_goto(point2)
+print("--> Going to Point 2")
+
+time.sleep(5)
+print("Mission Completed !!!")
+
 vehicle.close()
