@@ -24,3 +24,23 @@ def arm_and_takeoff(aTargetAltitude):
     print('Waiting for arming motors ...')
     time.sleep(5)
     
+  print('Starting Takeoff !!!')
+  vehicle.simple_takeoff(aTargetAltitude)
+  
+  while True:
+    print("=> Altitude : ", vehicle.location.global_relative_frame.alt)
+    if vehicle.location.global_relative_frame.alt>=aTargetAltitude*0.95:
+      print "Reached target altitude !!!"
+      break
+    time.sleep(1)
+
+# start initial takeoff
+arm_and_takeoff(10)
+time.sleep(5)
+
+print("Takeoff Successfully !!!")
+
+# hovering 15 seconds
+time.sleep(15)
+
+vehicle.close()
