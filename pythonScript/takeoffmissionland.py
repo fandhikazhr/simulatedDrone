@@ -4,11 +4,14 @@ import time
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument('connect', default='127.0.0.1:14550')
+parser.add_argument('--connect', default='127.0.0.1:14550')
 args = parser.parse_args()
 
 print('Connected to vehicle on: %s' % args.connect)
 vehicle = connect(args.connect, baud=57600, wait_ready=True)
+
+master = mavutil.mavlink_connection('udpin:127.0.0.1:14550')
+master.wait_heartbeat()
 
 # Choose Flight Mode
 mode1 = 'GUIDED'
